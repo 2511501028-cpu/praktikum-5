@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Saya</title>
+
+    <!-- Bootstrap CSS lokal -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+
+    <style>
+      :root {
+        --earth-deep-green: #30360e; /* Deep Green / Warna Teks & Utiliti Gelap */
+        --earth-olive: #787f56; /* Olive / Aksesori & Tombol */
+        --earth-clay-beige: #e2d4b9; /* Clay Beige / Latar Belakang Soft */
+        --earth-bg-light: #f7f4ee; /* Latar Belakang Halaman Netral */
+      }
+
+      /* agar smooth jika tombol navigasi diklik */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--earth-bg-light);
+        color: #232812;
+      }
+
+      /* Kustomisasi Navbar */
+      .navbar-earth {
+        background-color: var(--earth-deep-green) !important;
+      }
+
+      /* Kustomisasi Hero Section (Tampilan Modern 2 Kolom) */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          var(--earth-clay-beige) 0%,
+          #eae0d0 100%
+        );
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-title {
+        color: var(--earth-deep-green);
+        font-weight: 800;
+        font-size: 2.8rem;
+      }
+
+      .hero-subtitle {
+        color: var(--earth-olive);
+        font-weight: 600;
+        font-size: 1.25rem;
+      }
+
+      .hero-desc {
+        color: #4a5038;
+        max-width: 500px;
+      }
+
+      /* Container Foto Profil Samping Kanan */
+      .hero-img-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .foto-profil-hero {
+        width: 320px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 50%; /* Membuat gambar berbentuk lingkaran */
+        border: 6px solid #ffffff;
+        box-shadow: 0 12px 30px rgba(48, 54, 14, 0.15); /*efek bayangan lembut di bawah gambar */
+      }
+
+      /* Kustomisasi Tombol */
+      .btn-earth-primary {
+        background-color: var(--earth-olive);
+        border-color: var(--earth-olive);
+        color: #ffffff;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-earth-primary:hover {
+        background-color: var(--earth-deep-green);
+        border-color: var(--earth-deep-green);
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      .btn-earth-outline {
+        color: var(--earth-deep-green);
+        border: 2px solid var(--earth-deep-green);
+        padding: 10px 26px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-earth-outline:hover {
+        background-color: var(--earth-deep-green);
+        border-color: var(--earth-deep-green);
+        color: #ffffff;
+      }
+
+      /* Kustomisasi Card Proyek */
+      .project-card {
+        height: 100%;
+        background-color: #ffffff;
+        border: 1px solid var(--earth-clay-beige);
+        border-radius: 12px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(48, 54, 14, 0.12) !important;
+      }
+
+      /* Kustomisasi Footer */
+      footer {
+        background-color: var(--earth-deep-green);
+        color: var(--earth-clay-beige);
+      }
+
+      /* Penyesuaian Responsif Layar HP/Tablet */
+      @media (max-width: 991px) {
+        .hero {
+          text-align: center;
+        }
+        .hero-desc {
+          margin: 0 auto;
+        }
+        .foto-profil-hero {
+          width: 260px;
+          height: 260px;
+          margin-top: 30px;
+        }
+        .hero-floating-card {
+          position: relative;
+          right: auto;
+          bottom: auto;
+          margin: -30px auto 0 auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <!--menu navigasi tetap diatas walau di scroll.-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark navbar-earth sticky-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#beranda">Portofolio</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuNavigasi"
+          aria-controls="menuNavigasi"
+          aria-expanded="false"
+          aria-label="Buka navigasi"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuNavigasi">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#beranda">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang Saya</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#proyek">Proyek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontak">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero d-flex align-items-center" id="beranda">
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Kolom Kiri: Teks -->
+          <div class="col-lg-6 text-lg-start mb-4 mb-lg-0">
+            <h1 class="hero-title mb-2">Halo, Saya Nala!</h1>
+            <p class="hero-subtitle mb-3">Web Developer & UI/UX Enthusiast</p>
+            <p class="hero-desc lead mb-4">
+              Selamat datang di website portofolio pribadi saya. Saya berfokus
+              membuat antarmuka web yang rapi, responsif, dan mudah digunakan.
+            </p>
+            <div
+              class="d-flex gap-3 justify-content-center justify-content-lg-start"
+            >
+              <a href="#proyek" class="btn btn-earth-primary shadow-sm"
+                >Lihat Proyek &rarr;</a
+              >
+              <a href="#kontak" class="btn btn-earth-outline">Kontak Saya</a>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Foto Profil -->
+          <div class="col-lg-6 text-center">
+            <!-- menjadi dua sisi sejajar pada layar komputer -->
+            <div class="hero-img-wrapper">
+              <!-- Tag img untuk menampilkan foto profil -->
+              <img
+                src="img/foto_profil.jpg"
+                alt="Foto Profil Saya"
+                class="foto-profil-hero"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section class="container py-5" id="tentang">
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <h2 class="fw-bold mb-3" style="color: var(--earth-deep-green)">
+            Tentang Saya
+          </h2>
+          <p>
+            Saya adalah mahasiswa Teknologi Informasi Universitas 'Aisyiyah
+            Yogyakarta yang tertarik pada pengembangan website dan teknologi
+            digital. Website ini dibuat sebagai latihan menggunakan Bootstrap 5.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyek -->
+    <section class="container py-5" id="proyek">
+      <h2
+        class="text-center fw-bold mb-4"
+        style="color: var(--earth-deep-green)"
+      >
+        Proyek Saya
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <!-- Menata 3 buah kartu proyek secara responsif  -->
+          <div class="card project-card shadow-sm">
+            <div class="card-body p-4">
+              <h5
+                class="card-title fw-bold"
+                style="color: var(--earth-deep-green)"
+              >
+                Proyek Website
+              </h5>
+              <p class="card-text text-muted">
+                Membuat halaman website sederhana menggunakan HTML dan Bootstrap
+                5.
+              </p>
+              <a href="#kontak" class="btn btn-earth-primary btn-sm"
+                >Lihat Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card project-card shadow-sm">
+            <div class="card-body p-4">
+              <h5
+                class="card-title fw-bold"
+                style="color: var(--earth-deep-green)"
+              >
+                Desain Antarmuka
+              </h5>
+              <p class="card-text text-muted">
+                Merancang antarmuka yang sederhana, menarik, dan mudah
+                digunakan.
+              </p>
+              <a href="#kontak" class="btn btn-earth-primary btn-sm"
+                >Lihat Detail</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card project-card shadow-sm">
+            <div class="card-body p-4">
+              <h5
+                class="card-title fw-bold"
+                style="color: var(--earth-deep-green)"
+              >
+                Aplikasi Sederhana
+              </h5>
+              <p class="card-text text-muted">
+                Mempelajari pengembangan aplikasi sebagai bagian dari proses
+                belajar TI.
+              </p>
+              <a href="#kontak" class="btn btn-earth-primary btn-sm"
+                >Lihat Detail</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section class="container py-5" id="kontak">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="fw-bold mb-2" style="color: var(--earth-deep-green)">
+            Hubungi Saya
+          </h2>
+          <p class="text-muted mb-4">
+            Tertarik untuk berkolaborasi, berdiskusi, atau ingin tahu lebih
+            banyak tentang saya? Silakan terhubung melalui kontak di bawah ini.
+          </p>
+
+          <!-- Kartu Informasi Kontak -->
+          <div
+            class="p-4 p-md-5 bg-white rounded-4 border shadow-sm mb-4"
+            style="border-color: var(--earth-clay-beige) !important"
+          >
+            <div class="row g-4 justify-content-center text-start">
+              <!-- Item Email -->
+              <div class="col-md-6 col-lg-5">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="p-3 rounded-circle me-3"
+                    style="
+                      background-color: var(--earth-clay-beige);
+                      color: var(--earth-deep-green);
+                      font-size: 1.2rem;
+                    "
+                  >
+                    📧
+                  </div>
+                  <div>
+                    <small class="text-muted d-block fw-semibold">Email</small>
+                    <a
+                      class="fw-bold text-decoration-none"
+                      style="color: var(--earth-deep-green)"
+                    >
+                      2511501028@gmail.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item WhatsApp -->
+              <div class="col-md-6 col-lg-5">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="p-3 rounded-circle me-3"
+                    style="
+                      background-color: var(--earth-clay-beige);
+                      color: var(--earth-deep-green);
+                      font-size: 1.2rem;
+                    "
+                  >
+                    💬
+                  </div>
+                  <div>
+                    <small class="text-muted d-block fw-semibold"
+                      >WhatsApp</small
+                    >
+                    <a
+                      class="fw-bold text-decoration-none"
+                      style="color: var(--earth-deep-green)"
+                    >
+                      +62 896-7373-0461
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item Lokasi -->
+              <div class="col-md-6 col-lg-5">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="p-3 rounded-circle me-3"
+                    style="
+                      background-color: var(--earth-clay-beige);
+                      color: var(--earth-deep-green);
+                      font-size: 1.2rem;
+                    "
+                  >
+                    📍
+                  </div>
+                  <div>
+                    <small class="text-muted d-block fw-semibold">Lokasi</small>
+                    <span
+                      class="fw-bold"
+                      style="color: var(--earth-deep-green)"
+                    >
+                      Yogyakarta, Indonesia
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item Kampus -->
+              <div class="col-md-6 col-lg-5">
+                <div class="d-flex align-items-center">
+                  <div
+                    class="p-3 rounded-circle me-3"
+                    style="
+                      background-color: var(--earth-clay-beige);
+                      color: var(--earth-deep-green);
+                      font-size: 1.2rem;
+                    "
+                  >
+                    🎓
+                  </div>
+                  <div>
+                    <small class="text-muted d-block fw-semibold"
+                      >Institusi</small
+                    >
+                    <span
+                      class="fw-bold"
+                      style="color: var(--earth-deep-green)"
+                    >
+                      Universitas 'Aisyiyah Yogyakarta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tombol Kembali ke Atas -->
+          <a href="#beranda" class="btn btn-earth-outline btn-sm"
+            >↑ Kembali ke Atas</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+      <div class="container">
+        <p class="mb-0">&copy; 2026 Portofolio Saya | Praktikum Bootstrap</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript lokal -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
